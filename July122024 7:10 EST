@@ -1,0 +1,13 @@
+Update 7/12/24 7AM EST
+
+I have started to try to use the NSA 4600 for firewall and routing. 
+I have only just now learned that I will need to rebuild the config once again on my switch. I used switch port access originally, 
+and while it worked within the limited environment of the switch; my main goals to set up SSIDS that correspond to vlans would not be possible without trunking. 
+So I began my educating myself in that. Eventually I also wanted to make the SSIDs accessible via 
+an Access Point, and depending on which SSID you join, it would assign an IP that matches the allowed range for each segment.  
+And keep traffic isolated to each segment(the point of the vlan) for security. 
+
+On booting the NSA4600 I was unable to PuTTY into it. Upon investigation I had chosen the wrong speed, 9600 baud instead of 115,200 baud. 
+I was able to connect but it would refuse my request to access port or transmit/receive data. I will try to factory reset the NSA4600.
+I would like to get comfortable with this gear and maybe replace it with my SFF Dell PC running pfSense. I would be limiting my speed to a ethernet adapter NIC,
+not really a concern at this point but still a consideration. But I am more focused on understanding and laying out a network over speeds and efficiency.
