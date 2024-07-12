@@ -1,0 +1,53 @@
+I have decided to start and document the process behind me building my home lab. This is something I have wanted to do for a while.
+As a novice in documenting my workflows, please excuse any formatting and layout inconsistencies in this document.
+
+>Have Cisco 3750-X
+
+Goals: Build configuration for my home lab with security in mind. Vlans for segmentation, dedicated SFP for internet access. Use Mac filtering, uplink, ACL to control traffic. 
+Once Completed I wish to add as a node to my Wazuh Dashboard - long term goal after I complete the home lab.
+
+Has previous PW protected configuration 
+
+All attempts to switch into ROMMOM failed
+
+Investigated and found mode switch to be broken on PCB
+
+Shorted pads to enter ROMMON mode
+
+Renamed config and have booted back into iOS
+
+Info:
+  Enter host name [Switch]: Switch
+
+  Enter enable secret: ethan
+  
+  Enter enable password: ethan2  
+
+  Enter virtual terminal password: ethan3
+
+  Vlan1: IP: 192.168.92.1 <-- should change this using x.x.x.1 for router (using x.x.92.x for static IP)
+
+------------------------------------------------------------------------
+### Vlan config: 
+
+Vlan1:Management for switch
+Vlan2:Management for networking gear
+Vlan3:Trusted Devices
+Vlan4: IoT (all)
+Vlan5:Guest/CCTV/Sandbox
+
+### While in execute mode in CLI(enable)
+### Enter the config terminal using 'configure terminal' command
+
+### Then follow process of command per line
+
+Vlan X <-- this changes directory to the vlan
+name XXXXXX <-- changes name of the directory 
+exit <--- exits directory of chosen vlan
+
+### Now to assign ports on my switch to each vlan 
+
+Interface range gi3/0/1-12 <-- essentially changes directory or chooses this range of ports
+switchport mode access 
+switchport access vlan X
+Exit
